@@ -12,7 +12,7 @@ app.use(express.json());
 
 // CORS middleware
 app.use(cors({
-  origin: 'https://teacher-management-portal-front-end.vercel.app',
+  origin: 'https://teacher-management-portal-front-end.vercel.app/api',
   methods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
   allowedHeaders: 'Content-Type, Authorization',
   credentials: true

@@ -10,7 +10,7 @@ connectToDataBase();
 
 app.use(express.json());
 app.use(cors({
-  origin:["https://teacher-management-portal-front-end.vercel.app"],
+  origin:"https://teacher-management-portal-front-end.vercel.app",
   methods:["POST","GET","PUT","DELETE"],
   credentials : true
 }));

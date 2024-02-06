@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const connectToDataBase = require("../Backend/dataBase/connection");
-const teacherDataSchema = require("../Backend/dataBase/schema");
+const connectToDataBase = require("./dataBase/connection");
+const teacherDataSchema = require("./dataBase/schema");
 const apiRoutes = require("./routes/routes");
 const port = 3000;
 

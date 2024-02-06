@@ -11,13 +11,12 @@ connectToDataBase();
 app.use(express.json());
 
 // CORS middleware
-app.get('/test-cors', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://teacher-management-portal-front-end.vercel.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', true);
-  res.send('CORS test successful');
-});
+app.use(cors({
+  origin: 'https://teacher-management-portal-front-end.vercel.app',
+  methods: 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true
+}));
 
 // API routes
 app.use("/api", apiRoutes);

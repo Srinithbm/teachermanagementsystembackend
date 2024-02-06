@@ -9,11 +9,13 @@ const port = 3000;
 connectToDataBase();
 
 app.use(express.json());
-app.use(cors({
-  origin:"https://teacher-management-portal-front-end.vercel.app",
-  methods:["POST","GET","PUT","DELETE"],
-  credentials : true
-}));
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://teacher-management-portal-front-end.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
 app.use("/api", apiRoutes);
 
 app.listen(port, () => {
